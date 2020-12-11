@@ -16,13 +16,13 @@ import EditArticle from './components/EditArticle';
 function App() {
   const [posts, setPosts] = useState([])
   useEffect(() => {
-    axios.get('http://localhost:8080/articles')
+    axios.get('https://basalt-gusty-virgo.glitch.me/articles')
     .then(res => setPosts(res.data))
     .catch(error => console.log(error));
   });
   return (
     <div className="App">
-     
+
       <Header />
       <Navbar/>
       <Route exact path="/" render={() => <Articles posts={posts}/>} />
