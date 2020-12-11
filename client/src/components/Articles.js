@@ -8,7 +8,7 @@ const Articles = ({posts}) => {
     const [article, setArticle] = useState([])
     //DELETE ARTICLE BY ID
     const deleteArticle = id => {
-        axios.delete(`http://localhost:8080/articles/${id}`)
+        axios.delete(`https://basalt-gusty-virgo.glitch.me/articles/${id}`)
             .then(res => alert(res.data))
             setArticle(article.filter(elem => elem._id !== id));
     }

@@ -7,8 +7,8 @@ const EditArticle = props => {
     const[title, setTitle] = useState("");
     const[article, setArticle] = useState("");
     const[authorname, setAuthorName] = useState("");
-    const[message, setMessage] = useState("");  
-    
+    const[message, setMessage] = useState("");
+
     const changeOnClick = e => {
         e.preventDefault();
 
@@ -23,7 +23,7 @@ const EditArticle = props => {
         setAuthorName("");
 
         axios
-            .put(`http://localhost:8080/articles/update/${props.match.params.id}`, articles)
+            .put(`https://basalt-gusty-virgo.glitch.me/articles/update/${props.match.params.id}`, articles)
             .then(res => setMessage(res.data))
             .catch(err => {
                 console.log(err);
@@ -32,7 +32,7 @@ const EditArticle = props => {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:8080/articles/${props.match.params.id}`)
+            .get(`https://basalt-gusty-virgo.glitch.me/articles/${props.match.params.id}`)
             .then(res => [
                 setTitle(res.data.title),
                 setArticle(res.data.article),
@@ -40,7 +40,7 @@ const EditArticle = props => {
             ])
             .catch(error =>  console.log(error));
     }, []);
-    
+
 
     return (
         <EditArticleContainer>
@@ -58,7 +58,7 @@ const EditArticle = props => {
 
                 <div className="form-group">
                 <label htmlFor="title">Title</label>
-                <input type="text" 
+                <input type="text"
                 value={title}
                 onChange={e => setTitle(e.target.value)}
                  className="form-control" placeholder="Enter Title" />
@@ -66,7 +66,7 @@ const EditArticle = props => {
 
                 <div className="form-group">
                 <label htmlFor="article">Article</label>
-                <textarea 
+                <textarea
                 value={article}
                 onChange={e => setArticle(e.target.value)} className="form-control" rows="3" >
                 </textarea>
@@ -75,7 +75,7 @@ const EditArticle = props => {
                 <button type="submit" className="btn btn-primary">Update Article</button>
             </form>
         </div>
-        
+
         </EditArticleContainer>
     )
 }

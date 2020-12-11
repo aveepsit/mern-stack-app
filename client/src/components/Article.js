@@ -10,7 +10,7 @@ const Article = props => {
     const [authorname, setAuthorName] = useState('')
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/articles/${props.match.params.id}`)
+        axios.get(`https://basalt-gusty-virgo.glitch.me/articles/${props.match.params.id}`)
         .then(res => [
             setTitle(res.data.title),
             setArticle(res.data.article),
